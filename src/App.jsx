@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <h1>Users</h1>
-      <User name="shubham" description="FSWD" />
+      <User name="Shubham" description="FSWD" />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+//this project is only for education purpose
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";

@@ -1,7 +1,9 @@
-import React from "react";
+/*import React from "react";
+
 
 class User extends React.Component {
   //User is component.
+  
   constructor(props) {
     //when you use props you need constructor.
     super(props);
@@ -35,20 +37,33 @@ class User extends React.Component {
   componentDidUpdate() {
     console.log(this.state);
   }
+*/
+import React, { useEffect, useState } from "react";
 
-  //render is the view.
-  // we use here Life-cycle Methods.
-  render() {
-    console.log("Hey I'm from render()");
-    return (
-      //components and states are used here.
-      <div>
-        <h1>{this.props.name}</h1>
-        <p>{this.props.description}</p>
-        <h4>{this.state.planet}</h4>
-      </div>
-    );
-  }
-}
+const User = (props) => {
+  const [planet, setPlanet] = useState("earth");
+
+  //componentDidMount
+  useEffect(() => {
+    setPlanet("jupiter");
+    console.log("component mounting");
+    //return console.log("bye bye");
+  }, []);
+
+  //componentDidUpdate
+  useEffect(() => {
+    console.log("planet changed");
+  }, [planet]);
+
+  return (
+    //components and states are used here.
+    //this is how HOOKS work and hlp to reduse the code but same output--------------IMP---------------------
+    <div>
+      <h1>{props.name}</h1>
+      <p>{props.description}</p>
+      <button onClick={() => setPlanet("pluto")}>{planet}</button>
+    </div>
+  );
+};
 
 export default User;
